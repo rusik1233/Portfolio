@@ -135,20 +135,26 @@
         
 
   
-      </section>
-      <!-- Секция с формой обратной связи -->
-      <section class="main__feedback feedback" id="feedback">
-        <h2 class="feedback__title">FEEDBACK</h2>
-        <form action="" method="POST" class="feedback__form form">
-          <label for="email">
-            <input type="email" class="form__input" name="email" id="email" placeholder="Введите E-mail" required>
-          </label>
-          <label for="text">
-            <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Комментарий"></textarea>
-          </label>
-          <button class="form__button" type="submit">ОТПРАВИТЬ</button>
-        </form>
-      </section>
+<section class="main__feedback feedback" id="feedback">
+    <h2 class="feedback__title">FEEDBACK</h2>
+    <form action="{{ url_for('index') }}" method="POST" class="feedback__form form">
+        <label for="email">
+            <input type="email" class="form__input" name="email" id="email" 
+                   placeholder="Введите E-mail" required>
+        </label>
+        <label for="text">
+            <textarea name="text" class="form__input" id="text" 
+                      cols="70" rows="10" required placeholder="Комментарий"></textarea>
+        </label>
+        <button class="form__button" type="submit">ОТПРАВИТЬ</button>
+    </form>
+    
+    {% if request.method == 'POST' and 'email' in request.form %}
+        <div class="feedback__success" style="color: green; margin-top: 20px;">
+            Спасибо за ваш отзыв! Мы свяжемся с вами в ближайшее время.
+        </div>
+    {% endif %}
+</section>
     </main>
     <!-- Подвал для ссылок на соц-сети -->
     <footer>
