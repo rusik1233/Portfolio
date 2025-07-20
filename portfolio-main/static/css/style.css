@@ -159,7 +159,15 @@ ul {
   flex-direction: column;
   gap: 80px;
 }
-
+.feedback__success {
+    color: #4CAF50;
+    padding: 15px;
+    margin-top: 20px;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f8f9fa;
+}
 .skills__title {
   font-size: 60px;
   position: relative;
